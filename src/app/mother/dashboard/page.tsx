@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/button";
@@ -24,7 +24,7 @@ import {
   ChartTooltipContent,
   type ChartConfig
 } from "@/components/ui/chart";
-import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid } from "recharts";
+import { Line, LineChart, XAxis, YAxis, CartesianGrid } from "recharts";
 import Link from "next/link";
 
 const chartData = [
@@ -46,6 +46,12 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function MotherDashboard() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="min-h-screen bg-muted/20 pb-12">
       <Navbar />
@@ -108,22 +114,26 @@ export default function MotherDashboard() {
                 </div>
               </div>
               <div className="h-[300px] w-full">
-                <ChartContainer config={chartConfig}>
-                  <LineChart data={chartData}>
-                    <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.3} />
-                    <XAxis dataKey="time" hide />
-                    <YAxis domain={['dataMin - 10', 'dataMax + 10']} hide />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <Line 
-                      type="monotone" 
-                      dataKey="bpm" 
-                      stroke="var(--color-bpm)" 
-                      strokeWidth={3} 
-                      dot={{ fill: "var(--color-bpm)", strokeWidth: 2, r: 4 }}
-                      activeDot={{ r: 6, strokeWidth: 0 }}
-                    />
-                  </LineChart>
-                </ChartContainer>
+                {mounted ? (
+                  <ChartContainer config={chartConfig}>
+                    <LineChart data={chartData}>
+                      <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.3} />
+                      <XAxis dataKey="time" hide />
+                      <YAxis domain={['dataMin - 10', 'dataMax + 10']} hide />
+                      <ChartTooltip content={<ChartTooltipContent />} />
+                      <Line 
+                        type="monotone" 
+                        dataKey="bpm" 
+                        stroke="var(--color-bpm)" 
+                        strokeWidth={3} 
+                        dot={{ fill: "var(--color-bpm)", strokeWidth: 2, r: 4 }}
+                        activeDot={{ r: 6, strokeWidth: 0 }}
+                      />
+                    </LineChart>
+                  </ChartContainer>
+                ) : (
+                  <div className="h-full w-full bg-muted/20 animate-pulse rounded-xl" />
+                )}
               </div>
               <div className="mt-6 flex justify-between items-center text-sm">
                 <p className="text-muted-foreground">Average: 143 BPM</p>

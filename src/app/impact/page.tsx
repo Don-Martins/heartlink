@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { 
@@ -16,7 +16,7 @@ import {
   ChartContainer,
   type ChartConfig
 } from "@/components/ui/chart";
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const data = [
   { month: "Jan", saves: 120 },
@@ -35,6 +35,12 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function ImpactPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="min-h-screen bg-muted/20">
       <Navbar />
@@ -67,14 +73,18 @@ export default function ImpactPage() {
           <GlassCard className="p-10">
             <h3 className="text-2xl font-bold mb-8">Emergency Response Growth</h3>
             <div className="h-[300px]">
-              <ChartContainer config={chartConfig}>
-                <BarChart data={data}>
-                  <CartesianGrid vertical={false} opacity={0.1} />
-                  <XAxis dataKey="month" hide />
-                  <YAxis hide />
-                  <Bar dataKey="saves" fill="var(--color-saves)" radius={[8, 8, 0, 0]} />
-                </BarChart>
-              </ChartContainer>
+              {mounted ? (
+                <ChartContainer config={chartConfig}>
+                  <BarChart data={data}>
+                    <CartesianGrid vertical={false} opacity={0.1} />
+                    <XAxis dataKey="month" hide />
+                    <YAxis hide />
+                    <Bar dataKey="saves" fill="var(--color-saves)" radius={[8, 8, 0, 0]} />
+                  </BarChart>
+                </ChartContainer>
+              ) : (
+                <div className="h-full w-full bg-muted/20 animate-pulse rounded-xl" />
+              )}
             </div>
           </GlassCard>
 
