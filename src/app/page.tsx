@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -14,22 +13,29 @@ import {
   Wallet, 
   Truck, 
   ChevronRight, 
-  Star,
-  Plus,
   ArrowRight,
-  TrendingUp,
   MapPin,
   Ambulance,
-  PhoneCall,
-  Smartphone
+  Smartphone,
+  CloudUpload,
+  Cpu,
+  Bell
 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { cn } from "@/lib/utils";
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-mother');
   const droneImage = PlaceHolderImages.find(img => img.id === 'medical-drone');
   const dopplerUsageImage = PlaceHolderImages.find(img => img.id === 'doppler-usage');
+
+  const smartSteps = [
+    { icon: Smartphone, title: "Doppler Input", desc: "Digital heartbeat capture.", color: "text-blue-500", bg: "bg-blue-500/10" },
+    { icon: CloudUpload, title: "Cloud Stream", desc: "Encrypted data sync.", color: "text-purple-500", bg: "bg-purple-500/10" },
+    { icon: Cpu, title: "Smart Analysis", desc: "Sub-second waveform check.", color: "text-accent", bg: "bg-accent/10" },
+    { icon: Bell, title: "Alert Signal", desc: "Instant responder trigger.", color: "text-destructive", bg: "bg-destructive/10" }
+  ];
 
   return (
     <div className="min-h-screen">
@@ -85,7 +91,7 @@ export default function HomePage() {
           <div className="relative group">
             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] animate-float">
               <Image 
-                src={heroImage?.imageUrl || ""} 
+                src={heroImage?.imageUrl || "https://picsum.photos/seed/heartlink1/1200/800"} 
                 alt="Mother health" 
                 width={700} 
                 height={900} 
@@ -124,6 +130,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Interactive Smart Loop Section */}
+      <section className="py-32 container mx-auto px-4 bg-muted/20 rounded-[4rem] my-20">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">How It <span className="text-primary italic">Works</span></h2>
+          <p className="text-xl text-muted-foreground">The HeartLink ecosystem manages the entire care journey through a secure, high-speed coordination loop.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          {/* Connecting Lines (Desktop) */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10 -translate-y-12 hidden lg:block" />
+          
+          {smartSteps.map((step, i) => (
+            <div key={i} className="relative z-10 flex flex-col items-center text-center group">
+              <div className={cn(
+                "w-24 h-24 rounded-3xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 shadow-lg",
+                step.bg, step.color
+              )}>
+                <step.icon className="w-10 h-10" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed px-4">{step.desc}</p>
+              
+              {i < 3 && (
+                <div className="absolute top-1/2 -right-4 translate-x-1/2 -translate-y-12 hidden lg:block">
+                  <ArrowRight className="text-primary/20 w-6 h-6" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-20 text-center">
+          <Link href="/how-it-works">
+            <Button variant="outline" className="rounded-full px-10 h-14 font-bold border-primary text-primary hover:bg-primary/5">
+              Deep Dive into the Tech
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* IoT Preview */}
       <section className="py-32 container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -133,7 +180,7 @@ export default function HomePage() {
                
                <div className="relative h-64 w-full mb-8 rounded-3xl overflow-hidden shadow-inner">
                   <Image 
-                    src={dopplerUsageImage?.imageUrl || ""} 
+                    src={dopplerUsageImage?.imageUrl || "https://picsum.photos/seed/heartlink_doppler/800/800"} 
                     alt="Doppler Usage" 
                     fill 
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -168,7 +215,7 @@ export default function HomePage() {
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
           </div>
           <div className="order-1 lg:order-2 space-y-8">
-            <h2 className="text-5xl font-bold leading-tight">IoT Doppler <br/><span className="text-primary">Smart Integration.</span></h2>
+            <h2 className="text-5xl font-bold leading-tight">Smart IoT <br/><span className="text-primary">Medical Integration.</span></h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
               Standard dopplers become smart devices with HeartLink. Record heartbeat waveforms at home and let our smart engine detect early warning signs.
             </p>
@@ -220,7 +267,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-card">
                 <Image 
-                  src={droneImage?.imageUrl || ""} 
+                  src={droneImage?.imageUrl || "https://picsum.photos/seed/heartlink8/800/600"} 
                   alt="Medical Delivery Drone" 
                   width={800} 
                   height={600} 
@@ -310,10 +357,6 @@ export default function HomePage() {
             <p>© 2024 HeartLink Maternal Care System. All rights reserved.</p>
             <div className="flex gap-8">
               <span>Prototype v2.0</span>
-              <div className="flex gap-4">
-                <Plus className="w-5 h-5 cursor-pointer hover:text-primary" />
-                <Plus className="w-5 h-5 cursor-pointer hover:text-primary" />
-              </div>
             </div>
           </div>
         </div>
