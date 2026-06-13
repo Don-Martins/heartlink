@@ -42,6 +42,12 @@
       "description": "Modern pharmacy interior",
       "imageUrl": "https://picsum.photos/seed/heartlink7/800/600",
       "imageHint": "pharmacy store"
+    },
+    {
+      "id": "medical-drone",
+      "description": "Autonomous medical delivery drone carrying supplies",
+      "imageUrl": "https://picsum.photos/seed/heartlink8/800/600",
+      "imageHint": "medical drone"
     }
   ]
 }

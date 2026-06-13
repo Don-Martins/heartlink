@@ -28,7 +28,7 @@ import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-mother');
-  const dopplerImage = PlaceHolderImages.find(img => img.id === 'doppler-device');
+  const droneImage = PlaceHolderImages.find(img => img.id === 'medical-drone');
 
   return (
     <div className="min-h-screen">
@@ -177,7 +177,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Feature Grid */}
+      {/* Ecosystem Section with Drone Visual */}
       <section className="py-32 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-20">
@@ -185,6 +185,45 @@ export default function HomePage() {
             <p className="text-xl text-muted-foreground">Connecting every stakeholder in the maternal journey.</p>
           </div>
           
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <div className="space-y-8">
+              <h3 className="text-4xl font-bold">Beacon Drug Delivery</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                When critical medications are needed, our integrated logistics network springs into action. From smart bikes to autonomous drones, we ensure life-saving supplies reach you in record time.
+              </p>
+              <div className="grid gap-4">
+                <div className="flex items-center gap-3 p-4 bg-background rounded-2xl shadow-sm border border-border/50">
+                  <Zap className="text-primary w-5 h-5" />
+                  <span className="font-bold">Real-time GPS Tracking</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-background rounded-2xl shadow-sm border border-border/50">
+                  <ShieldCheck className="text-accent w-5 h-5" />
+                  <span className="font-bold">Cold-chain Management</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-card">
+                <Image 
+                  src={droneImage?.imageUrl || ""} 
+                  alt="Medical Delivery Drone" 
+                  width={800} 
+                  height={600} 
+                  className="object-cover w-full h-full"
+                  data-ai-hint="medical drone"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6">
+                <GlassCard className="bg-primary text-white p-4 border-none">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-white animate-ping" />
+                    <span className="text-xs font-bold uppercase tracking-wider">In Flight: 4.2km Away</span>
+                  </div>
+                </GlassCard>
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             <GlassCard className="p-10 flex flex-col items-start gap-6 border-accent/20">
               <div className="bg-accent/10 p-4 rounded-2xl">
@@ -199,8 +238,8 @@ export default function HomePage() {
               <div className="bg-primary/10 p-4 rounded-2xl">
                 <Truck className="text-primary w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold">Beacon Delivery</h3>
-              <p className="text-muted-foreground leading-relaxed">Integrated medical logistics. Get prenatal medicine delivered via beacon-tracked bikes in hours.</p>
+              <h3 className="text-2xl font-bold">Logistics Tracking</h3>
+              <p className="text-muted-foreground leading-relaxed">Integrated beacon tracking. Get prenatal medicine delivered via courier or drone in hours.</p>
               <Button variant="ghost" className="p-0 text-primary font-bold hover:bg-transparent">Track Shipment <ArrowRight className="ml-2 w-4 h-4"/></Button>
             </GlassCard>
 
