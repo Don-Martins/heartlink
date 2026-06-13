@@ -29,6 +29,7 @@ import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-mother');
   const droneImage = PlaceHolderImages.find(img => img.id === 'medical-drone');
+  const dopplerUsageImage = PlaceHolderImages.find(img => img.id === 'doppler-usage');
 
   return (
     <div className="min-h-screen">
@@ -127,16 +128,30 @@ export default function HomePage() {
       <section className="py-32 container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="order-2 lg:order-1 relative">
-            <div className="bg-card rounded-[3rem] p-10 shadow-2xl border border-border/50 relative overflow-hidden">
-               <div className="animate-scan absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent h-1/2 pointer-events-none" />
-               <h3 className="text-2xl font-bold mb-8 flex items-center gap-2">
-                 <Smartphone className="text-primary w-6 h-6" />
-                 Live Monitor Feed
-               </h3>
-               <div className="h-48 bg-black/5 dark:bg-black/20 rounded-3xl mb-8 flex items-center justify-center relative">
-                 <div className="heartbeat-wave absolute inset-x-0 h-px top-1/2 opacity-30" />
-                 <p className="text-[10px] uppercase tracking-[0.5em] font-bold text-primary/40">Data Stream Active</p>
+            <div className="bg-card rounded-[3rem] p-10 shadow-2xl border border-border/50 relative overflow-hidden group">
+               <div className="animate-scan absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent h-1/2 pointer-events-none z-20" />
+               
+               <div className="relative h-64 w-full mb-8 rounded-3xl overflow-hidden shadow-inner">
+                  <Image 
+                    src={dopplerUsageImage?.imageUrl || ""} 
+                    alt="Doppler Usage" 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    data-ai-hint="fetal doppler"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                  <div className="absolute inset-x-0 h-px top-1/2 bg-primary/40 heartbeat-wave opacity-50 z-10" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                     <div className="flex justify-between items-end">
+                        <div className="bg-background/80 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20">
+                           <p className="text-[10px] font-bold uppercase text-primary mb-1">Live Signal</p>
+                           <p className="text-xs font-mono font-bold">4.2MHz • ACTIVE</p>
+                        </div>
+                        <Activity className="text-primary w-8 h-8 animate-pulse" />
+                     </div>
+                  </div>
                </div>
+
                <div className="grid grid-cols-3 gap-6">
                  {[
                    { l: "Status", v: "Normal", c: "text-accent" },

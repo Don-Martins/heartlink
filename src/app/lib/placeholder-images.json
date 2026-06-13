@@ -14,6 +14,12 @@
       "imageHint": "medical device"
     },
     {
+      "id": "doppler-usage",
+      "description": "Fetal doppler device being used for monitoring",
+      "imageUrl": "https://picsum.photos/seed/heartlink_doppler/800/800",
+      "imageHint": "fetal doppler"
+    },
+    {
       "id": "doctor-consult",
       "description": "Professional healthcare consultation",
       "imageUrl": "https://picsum.photos/seed/heartlink3/800/600",
