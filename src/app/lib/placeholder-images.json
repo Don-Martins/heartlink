@@ -24,6 +24,24 @@
       "description": "Digital wallet interface mockup",
       "imageUrl": "https://picsum.photos/seed/heartlink4/400/300",
       "imageHint": "digital payment"
+    },
+    {
+      "id": "hospital-exterior",
+      "description": "Modern hospital building",
+      "imageUrl": "https://picsum.photos/seed/heartlink5/800/600",
+      "imageHint": "hospital building"
+    },
+    {
+      "id": "logistics-bike",
+      "description": "Medical delivery bike",
+      "imageUrl": "https://picsum.photos/seed/heartlink6/600/400",
+      "imageHint": "delivery bike"
+    },
+    {
+      "id": "pharmacy-interior",
+      "description": "Modern pharmacy interior",
+      "imageUrl": "https://picsum.photos/seed/heartlink7/800/600",
+      "imageHint": "pharmacy store"
     }
   ]
 }

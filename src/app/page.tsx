@@ -16,7 +16,12 @@ import {
   ChevronRight, 
   Star,
   Plus,
-  ArrowRight
+  ArrowRight,
+  TrendingUp,
+  MapPin,
+  Ambulance,
+  PhoneCall,
+  Smartphone
 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
@@ -30,277 +35,232 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-full -z-10 blur-3xl opacity-60" />
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full font-medium text-sm">
-              <span className="relative flex h-2 w-2">
+      <section className="relative pt-40 pb-20 overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-full -z-10 blur-[120px] opacity-40 animate-pulse-soft" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 rounded-r-full -z-10 blur-[100px] opacity-30" />
+        
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-10">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-primary/10 text-primary rounded-full font-bold text-sm border border-primary/20 shadow-inner">
+              <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
-              Next-Gen Maternal Monitoring
+              AI-POWERED MATERNAL MONITORING
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold font-headline leading-tight">
-              Giving Every <span className="text-primary italic">Mother</span> Peace of Mind.
+            <h1 className="text-6xl md:text-8xl font-bold font-headline leading-[1.1]">
+              Every <span className="text-primary italic">Heartbeat</span> Matters.
             </h1>
-            <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-              HeartLink connects mothers, babies, and medical professionals through real-time heartbeat monitoring and rapid emergency coordination.
+            <p className="text-2xl text-muted-foreground max-w-xl leading-relaxed">
+              HeartLink bridges the gap between home monitoring and clinical response, connecting mothers to doctors and delivery networks instantly.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5 pt-4">
               <Link href="/register">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 h-14 px-8 text-lg">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 h-16 px-10 text-xl rounded-2xl shadow-2xl shadow-primary/30">
                   Get Started
-                  <ChevronRight className="ml-2 w-5 h-5" />
+                  <ChevronRight className="ml-2 w-6 h-6" />
                 </Button>
               </Link>
-              <Link href="/partners">
-                <Button size="lg" variant="outline" className="h-14 px-8 text-lg">
-                  Join as Partner
+              <Link href="/how-it-works">
+                <Button size="lg" variant="outline" className="h-16 px-10 text-xl rounded-2xl border-primary/20 hover:bg-primary/5">
+                  Watch Demo
                 </Button>
               </Link>
             </div>
-            <div className="flex items-center gap-8 pt-4">
-              <div className="text-center">
-                <p className="text-3xl font-bold font-headline">25K+</p>
-                <p className="text-sm text-muted-foreground">Mothers Monitored</p>
-              </div>
-              <div className="w-px h-10 bg-border" />
-              <div className="text-center">
-                <p className="text-3xl font-bold font-headline">500+</p>
-                <p className="text-sm text-muted-foreground">Alerts Sent</p>
-              </div>
-              <div className="w-px h-10 bg-border" />
-              <div className="text-center">
-                <p className="text-3xl font-bold font-headline">100%</p>
-                <p className="text-sm text-muted-foreground">Response Rate</p>
-              </div>
+            <div className="flex items-center gap-12 pt-8">
+              {[
+                { val: "25K+", label: "Mothers" },
+                { val: "500+", label: "Hospitals" },
+                { val: "100%", label: "Response" }
+              ].map((stat, i) => (
+                <div key={i}>
+                  <p className="text-4xl font-bold font-headline mb-1">{stat.val}</p>
+                  <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
           
-          <div className="relative">
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl animate-float">
+          <div className="relative group">
+            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] animate-float">
               <Image 
                 src={heroImage?.imageUrl || ""} 
                 alt="Mother health" 
-                width={600} 
-                height={800} 
-                className="object-cover"
+                width={700} 
+                height={900} 
+                className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                 data-ai-hint="maternity healthcare"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
             {/* Floating Glass Element */}
-            <div className="absolute -bottom-10 -left-10 z-20 w-64">
-              <GlassCard className="p-4 flex items-center gap-4">
-                <div className="bg-accent/20 p-2 rounded-lg">
-                  <Activity className="text-accent w-6 h-6" />
+            <div className="absolute -bottom-10 -left-10 z-20 w-72">
+              <GlassCard className="p-5 flex items-center gap-4 border-accent/30">
+                <div className="bg-accent/20 p-3 rounded-2xl">
+                  <Activity className="text-accent w-7 h-7" />
                 </div>
                 <div>
                   <p className="text-sm font-bold">Fetal Heart Rate</p>
-                  <p className="text-xs text-muted-foreground">140 BPM - Stable</p>
+                  <p className="text-xl font-bold text-accent">142 BPM</p>
+                  <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider">Stable • Home Sync</p>
                 </div>
               </GlassCard>
             </div>
-            <div className="absolute top-10 -right-10 z-20 w-48">
-              <GlassCard className="p-4">
-                <div className="flex -space-x-3 mb-2">
+            <div className="absolute top-10 -right-10 z-20 w-56">
+              <GlassCard className="p-5 border-primary/20">
+                <div className="flex -space-x-3 mb-3">
                   {[1,2,3].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-muted overflow-hidden">
-                      <Image src={`https://picsum.photos/seed/${i}/32/32`} alt="user" width={32} height={32} />
+                    <div key={i} className="w-10 h-10 rounded-full border-4 border-white dark:border-card bg-muted overflow-hidden">
+                      <Image src={`https://picsum.photos/seed/${i+10}/40/40`} alt="user" width={40} height={40} />
                     </div>
                   ))}
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-primary text-[10px] text-white flex items-center justify-center">+12</div>
+                  <div className="w-10 h-10 rounded-full border-4 border-white dark:border-card bg-primary text-xs text-white flex items-center justify-center font-bold">+12</div>
                 </div>
-                <p className="text-xs font-medium">Healthcare workers nearby</p>
+                <p className="text-xs font-bold leading-tight">Emergency workers active in your area.</p>
               </GlassCard>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4 text-center mb-16">
-          <h2 className="text-3xl md:text-5xl mb-6">Traditional Care is Failing Mothers</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Many complications go unnoticed until it's too late. HeartLink bridges the gap.
-          </p>
-        </div>
-        <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { icon: ShieldCheck, title: "Missed Signs", desc: "Subtle changes in heartbeat patterns often go ignored." },
-            { icon: Activity, title: "Delayed Treatment", desc: "Manual detection takes too long for critical situations." },
-            { icon: ShieldCheck, title: "Limited Access", desc: "Quality care is often far from rural or suburban areas." },
-            { icon: Zap, title: "Emergency Chaos", desc: "Coordinating hospitals during a crisis is stressful and slow." }
-          ].map((item, idx) => (
-            <div key={idx} className="p-8 rounded-3xl bg-background border border-border group hover:border-primary transition-all">
-              <div className="bg-primary/5 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <item.icon className="text-primary w-7 h-7" />
-              </div>
-              <h3 className="text-xl mb-3">{item.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+      {/* IoT Preview */}
+      <section className="py-32 container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="order-2 lg:order-1 relative">
+            <div className="bg-card rounded-[3rem] p-10 shadow-2xl border border-border/50 relative overflow-hidden">
+               <div className="animate-scan absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent h-1/2 pointer-events-none" />
+               <h3 className="text-2xl font-bold mb-8 flex items-center gap-2">
+                 <Smartphone className="text-primary w-6 h-6" />
+                 Live Monitor Feed
+               </h3>
+               <div className="h-48 bg-black/5 dark:bg-black/20 rounded-3xl mb-8 flex items-center justify-center relative">
+                 <div className="heartbeat-wave absolute inset-x-0 h-px top-1/2 opacity-30" />
+                 <p className="text-[10px] uppercase tracking-[0.5em] font-bold text-primary/40">Data Stream Active</p>
+               </div>
+               <div className="grid grid-cols-3 gap-6">
+                 {[
+                   { l: "Status", v: "Normal", c: "text-accent" },
+                   { l: "BPM", v: "142", c: "text-foreground" },
+                   { l: "Week", v: "28", c: "text-foreground" }
+                 ].map((item, i) => (
+                   <div key={i} className="text-center">
+                     <p className="text-[10px] text-muted-foreground font-bold uppercase mb-1">{item.l}</p>
+                     <p className={`text-xl font-bold ${item.c}`}>{item.v}</p>
+                   </div>
+                 ))}
+               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Solutions / Interactive Cards */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 grid lg:grid-cols-3 gap-8">
-          <GlassCard className="lg:col-span-2 overflow-hidden relative group p-0">
-            <div className="p-10 flex flex-col md:flex-row gap-8 items-center">
-              <div className="flex-1 space-y-4">
-                <h3 className="text-3xl font-headline font-bold">Smart Fetal Monitoring</h3>
-                <p className="text-muted-foreground">Using advanced doppler technology to record and analyze baby heartbeats at home, syncing instantly with your medical records.</p>
-                <Link href="/features" className="inline-flex items-center text-primary font-bold hover:gap-2 transition-all">
-                  Learn more about monitoring <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </div>
-              <div className="w-full md:w-1/2 aspect-video bg-muted rounded-2xl overflow-hidden relative">
-                 <div className="heartbeat-wave absolute inset-0 opacity-20" />
-                 <Image src={dopplerImage?.imageUrl || ""} alt="Monitoring" width={400} height={250} className="object-cover w-full h-full" />
-              </div>
-            </div>
-          </GlassCard>
-
-          <GlassCard className="bg-primary text-white space-y-6">
-            <div className="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center">
-              <Zap className="w-6 h-6" />
-            </div>
-            <h3 className="text-2xl font-headline font-bold">24/7 Smart Alert System</h3>
-            <p className="text-primary-foreground/80">When abnormalities are detected, the system automatically triggers a priority alert to the nearest healthcare team.</p>
-            <div className="p-4 bg-white/10 rounded-xl space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs uppercase tracking-widest font-bold opacity-60">Status</span>
-                <span className="text-[10px] bg-accent text-accent-foreground px-2 py-0.5 rounded-full font-bold">LIVE</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-sm">Monitoring Patient HL-242</span>
-              </div>
-            </div>
-          </GlassCard>
-
-          <GlassCard className="space-y-6">
-            <div className="bg-accent/10 w-12 h-12 rounded-xl flex items-center justify-center">
-              <Wallet className="text-accent w-6 h-6" />
-            </div>
-            <h3 className="text-2xl font-headline font-bold">Health Wallet Integration</h3>
-            <p className="text-muted-foreground">Integrated with OPay for instant funding of emergency procedures, medicine, and ambulance services.</p>
-            <Button variant="outline" className="w-full">Open Wallet Simulation</Button>
-          </GlassCard>
-
-          <GlassCard className="space-y-6">
-            <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center">
-              <Truck className="text-primary w-6 h-6" />
-            </div>
-            <h3 className="text-2xl font-headline font-bold">Medicine Delivery</h3>
-            <p className="text-muted-foreground">Request essential prenatal medication and have them delivered to your doorstep within hours.</p>
-            <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-               <div className="w-[65%] h-full bg-primary" />
-            </div>
-            <p className="text-[10px] text-muted-foreground text-center">Rider is 10 mins away</p>
-          </GlassCard>
-
-          <GlassCard className="space-y-6">
-            <div className="bg-accent/10 w-12 h-12 rounded-xl flex items-center justify-center">
-              <ShieldCheck className="text-accent w-6 h-6" />
-            </div>
-            <h3 className="text-2xl font-headline font-bold">Coordination Center</h3>
-            <p className="text-muted-foreground">Real-time status updates between mothers, healthcare workers, and hospitals during emergencies.</p>
-            <Button variant="ghost" className="w-full">View Network</Button>
-          </GlassCard>
-        </div>
-      </section>
-
-      {/* How it Works - Timeline */}
-      <section className="py-24 bg-muted/50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-headline mb-4">The HeartLink Journey</h2>
-            <p className="text-muted-foreground">Simple steps that save lives.</p>
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
           </div>
-          <div className="space-y-12">
-            {[
-              { step: "Step 1", title: "Mother Uses Doppler", desc: "Easy to use at home recording device." },
-              { step: "Step 2", title: "Heartbeat Recorded", desc: "Securely uploaded to the HeartLink cloud." },
-              { step: "Step 3", title: "Abnormality Detection", desc: "Sophisticated algorithms flag potential risks." },
-              { step: "Step 4", title: "Healthcare Alert", desc: "Instant notification to assigned worker." },
-              { step: "Step 5", title: "Care Activated", desc: "Rapid response and emergency hospitalization." }
-            ].map((item, idx) => (
-              <div key={idx} className="flex gap-8 items-start group">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
-                    {idx + 1}
+          <div className="order-1 lg:order-2 space-y-8">
+            <h2 className="text-5xl font-bold leading-tight">IoT Doppler <br/><span className="text-primary">Live Integration.</span></h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Standard dopplers become smart devices with HeartLink. Record heartbeat waveforms at home and let our AI engine detect early warning signs.
+            </p>
+            <div className="grid gap-6">
+              {[
+                { i: ShieldCheck, t: "Military-grade Encryption", d: "Your medical data is for your eyes and your doctor's only." },
+                { i: Zap, t: "Real-time Alerts", d: "Abnormalities trigger instant hospital and ambulance dispatch." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 items-start">
+                  <div className="bg-primary/10 p-4 rounded-2xl">
+                    <item.i className="text-primary w-6 h-6" />
                   </div>
-                  {idx < 4 && <div className="w-1 h-20 bg-primary/20 mt-2" />}
+                  <div>
+                    <h4 className="text-xl font-bold mb-1">{item.t}</h4>
+                    <p className="text-muted-foreground leading-relaxed">{item.d}</p>
+                  </div>
                 </div>
-                <div className="pt-2">
-                  <span className="text-primary font-bold text-sm uppercase tracking-widest">{item.step}</span>
-                  <h4 className="text-2xl font-headline font-bold mt-1 mb-2">{item.title}</h4>
-                  <p className="text-muted-foreground">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="relative rounded-[3rem] bg-foreground text-background overflow-hidden p-12 md:p-24 text-center">
-            <div className="absolute top-0 left-0 w-full h-full bg-primary/10 -z-10" />
-            <h2 className="text-4xl md:text-6xl font-headline font-bold mb-8">Ready to transform maternal care?</h2>
-            <p className="text-xl opacity-80 mb-12 max-w-2xl mx-auto">Join thousands of mothers and healthcare professionals building a safer future for every pregnancy.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 h-16 px-10 text-xl">Get Started Now</Button>
-              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 h-16 px-10 text-xl">Contact Support</Button>
-            </div>
+      {/* Feature Grid */}
+      <section className="py-32 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <h2 className="text-5xl font-bold mb-6">Built for the <span className="text-primary">Ecosystem</span></h2>
+            <p className="text-xl text-muted-foreground">Connecting every stakeholder in the maternal journey.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <GlassCard className="p-10 flex flex-col items-start gap-6 border-accent/20">
+              <div className="bg-accent/10 p-4 rounded-2xl">
+                <Wallet className="text-accent w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold">Health Wallet</h3>
+              <p className="text-muted-foreground leading-relaxed">Powered by OPay. Instant funding for medicine, ambulances, and emergency ward fees.</p>
+              <Button variant="ghost" className="p-0 text-accent font-bold hover:bg-transparent">Open Simulation <ArrowRight className="ml-2 w-4 h-4"/></Button>
+            </GlassCard>
+
+            <GlassCard className="p-10 flex flex-col items-start gap-6 border-primary/20">
+              <div className="bg-primary/10 p-4 rounded-2xl">
+                <Truck className="text-primary w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold">Beacon Delivery</h3>
+              <p className="text-muted-foreground leading-relaxed">Integrated medical logistics. Get prenatal medicine delivered via beacon-tracked bikes in hours.</p>
+              <Button variant="ghost" className="p-0 text-primary font-bold hover:bg-transparent">Track Shipment <ArrowRight className="ml-2 w-4 h-4"/></Button>
+            </GlassCard>
+
+            <GlassCard className="p-10 flex flex-col items-start gap-6 border-destructive/20">
+              <div className="bg-destructive/10 p-4 rounded-2xl">
+                <Ambulance className="text-destructive w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold">Smart Dispatch</h3>
+              <p className="text-muted-foreground leading-relaxed">Direct hospital coordination. We identify the nearest hospital with available NICU beds.</p>
+              <Button variant="ghost" className="p-0 text-destructive font-bold hover:bg-transparent">View Networks <ArrowRight className="ml-2 w-4 h-4"/></Button>
+            </GlassCard>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-20 border-t border-border bg-muted/20">
-        <div className="container mx-auto px-4 grid md:grid-cols-4 gap-12">
-          <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2">
-              <Heart className="text-primary w-8 h-8 fill-primary" />
-              <span className="text-2xl font-headline font-bold">HeartLink</span>
-            </Link>
-            <p className="text-muted-foreground text-sm">Empowering mothers and healthcare workers with technology that cares.</p>
-          </div>
-          <div>
-            <h5 className="font-bold mb-6">Platform</h5>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><Link href="/features" className="hover:text-primary transition-colors">Features</Link></li>
-              <li><Link href="/how-it-works" className="hover:text-primary transition-colors">How it works</Link></li>
-              <li><Link href="/partners" className="hover:text-primary transition-colors">Partners</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-bold mb-6">Company</h5>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-bold mb-6">Connect</h5>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all"><Plus /></div>
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all"><Plus /></div>
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all"><Plus /></div>
+      <footer className="py-20 border-t bg-card/50">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-4 gap-12 mb-20">
+            <div className="space-y-6">
+              <Link href="/" className="flex items-center gap-2">
+                <Heart className="text-primary w-8 h-8 fill-primary" />
+                <span className="text-3xl font-headline font-bold">HeartLink</span>
+              </Link>
+              <p className="text-muted-foreground leading-relaxed">Saving lives through integrated technology and compassionate coordination.</p>
+            </div>
+            <div>
+              <h5 className="font-bold mb-6 text-lg">Product</h5>
+              <ul className="space-y-4 text-muted-foreground font-medium">
+                <li><Link href="/features" className="hover:text-primary transition-colors">Features</Link></li>
+                <li><Link href="/how-it-works" className="hover:text-primary transition-colors">How It Works</Link></li>
+                <li><Link href="/register" className="hover:text-primary transition-colors">Get Started</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-bold mb-6 text-lg">Company</h5>
+              <ul className="space-y-4 text-muted-foreground font-medium">
+                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link href="/impact" className="hover:text-primary transition-colors">Our Impact</Link></li>
+                <li><Link href="/partners" className="hover:text-primary transition-colors">Partners</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-bold mb-6 text-lg">Support</h5>
+              <ul className="space-y-4 text-muted-foreground font-medium">
+                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+                <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                <li><Link href="#" className="hover:text-primary transition-colors">Admin Portal</Link></li>
+              </ul>
             </div>
           </div>
-        </div>
-        <div className="container mx-auto px-4 mt-20 pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-4 text-sm text-muted-foreground text-center md:text-left">
-          <p>© 2024 HeartLink Maternal Care System. All rights reserved.</p>
-          <div className="flex gap-8 justify-center">
-            <span>Prototype Version 1.0</span>
-            <Link href="/login" className="hover:text-primary">Admin Access</Link>
+          <div className="pt-10 border-t flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
+            <p>© 2024 HeartLink Maternal Care System. All rights reserved.</p>
+            <div className="flex gap-8">
+              <span>Prototype v2.0</span>
+              <div className="flex gap-4">
+                <Plus className="w-5 h-5 cursor-pointer hover:text-primary" />
+                <Plus className="w-5 h-5 cursor-pointer hover:text-primary" />
+              </div>
+            </div>
           </div>
         </div>
       </footer>

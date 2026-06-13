@@ -17,39 +17,34 @@
     --secondary-foreground: 161 50% 25%;
     --muted: 161 10% 94%;
     --muted-foreground: 161 20% 45%;
-    --accent: 120 50% 60%;
-    --accent-foreground: 161 50% 10%;
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 161 20% 88%;
     --input: 161 20% 88%;
     --ring: 161 50% 35%;
     --radius: 0.75rem;
-    --chart-1: 161 50% 35%;
-    --chart-2: 120 50% 60%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
   }
   .dark {
-    --background: 161 50% 5%;
+    --background: 161 50% 4%;
     --foreground: 150 20% 98%;
-    --card: 161 40% 8%;
+    --card: 161 40% 6%;
     --card-foreground: 150 20% 98%;
-    --popover: 161 40% 8%;
+    --popover: 161 40% 6%;
     --popover-foreground: 150 20% 98%;
-    --primary: 161 50% 45%;
+    --primary: 161 55% 45%;
     --primary-foreground: 150 20% 98%;
-    --secondary: 161 30% 15%;
+    --secondary: 161 30% 12%;
     --secondary-foreground: 150 20% 98%;
-    --muted: 161 30% 12%;
+    --muted: 161 30% 10%;
     --muted-foreground: 161 10% 65%;
-    --accent: 120 50% 50%;
+    --accent: 175 70% 50%;
     --accent-foreground: 161 50% 5%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 150 20% 98%;
-    --border: 161 30% 18%;
-    --input: 161 30% 18%;
+    --border: 161 30% 15%;
+    --input: 161 30% 15%;
     --ring: 161 50% 45%;
   }
 }
@@ -59,16 +54,16 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body transition-colors duration-300;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline font-bold;
+    @apply font-headline font-bold tracking-tight;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-xl;
+    @apply bg-white/70 dark:bg-card/40 backdrop-blur-md border border-white/20 dark:border-white/5 shadow-xl;
   }
   
   .heartbeat-wave {
@@ -88,6 +83,26 @@
   50% { opacity: 0.8; transform: scale(1.02); }
 }
 
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
 .animate-pulse-soft {
   animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-scan {
+  animation: scan-line 4s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full hover:bg-muted-foreground/30 transition-colors;
 }
