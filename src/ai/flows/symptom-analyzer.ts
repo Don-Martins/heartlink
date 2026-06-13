@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A simulated health analysis tool for mothers based on symptoms and duration.
@@ -45,7 +46,7 @@ const symptomAnalyzerPrompt = ai.definePrompt({
   name: 'symptomAnalyzerPrompt',
   input: {schema: SymptomAnalyzerInputSchema},
   output: {schema: SymptomAnalyzerOutputSchema},
-  prompt: `You are a simulated health analysis tool for the HeartLink Maternal Care System. Your purpose is to provide prototype-level guidance based on the provided symptoms and their duration. Do not give actual medical advice.
+  prompt: `You are a simulated health analysis tool for the HeartLink Maternal Care System. Your purpose is to provide prototype-level guidance based on the provided symptoms and their duration using our Smart engine. Do not give actual medical advice.
 
 Analyze the following symptoms and duration:
 
@@ -53,7 +54,7 @@ Symptoms: {{#each symptoms}}- {{{this}}}
 {{/each}}
 Duration: {{{duration}}}
 
-Based on this information, provide a simulated health analysis, suggest non-medical actions, and determine a simulated emergency level (Low, Medium, High, or Critical).`,
+Based on this information, provide a simulated smart health analysis, suggest non-medical actions, and determine a simulated emergency level (Low, Medium, High, or Critical).`,
 });
 
 const symptomAnalyzerFlow = ai.defineFlow(

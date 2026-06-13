@@ -39,7 +39,7 @@ export default function HowItWorksPage() {
     },
     {
       id: "3",
-      label: "AI Analysis",
+      label: "Smart Analysis",
       description: "Proprietary algorithms analyze waveforms for early distress signs.",
       status: "current" as const
     },
@@ -70,7 +70,7 @@ export default function HowItWorksPage() {
           {[
             { icon: Smartphone, title: "Doppler Input", color: "bg-blue-500" },
             { icon: CloudUpload, title: "Cloud Engine", color: "bg-purple-500" },
-            { icon: Cpu, title: "AI Diagnosis", color: "bg-accent" },
+            { icon: Cpu, title: "Smart Diagnosis", color: "bg-accent" },
             { icon: Bell, title: "Alert Signal", color: "bg-destructive" }
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center group">

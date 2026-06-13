@@ -195,7 +195,7 @@ export default function HospitalDashboard() {
                 {[
                   { title: "Ambulance HL-09 Dispatched", time: "5m ago", type: "critical" },
                   { title: "Payment Verified: Rodriguez", time: "8m ago", type: "success" },
-                  { title: "AI Diagnosis Received", time: "10m ago", type: "info" },
+                  { title: "Smart Diagnosis Received", time: "10m ago", type: "info" },
                   { title: "NICU Bed Reserved", time: "15m ago", type: "info" },
                 ].map((log, i) => (
                   <div key={i} className="relative pl-6 border-l last:border-0 pb-8 last:pb-0">

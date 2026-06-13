@@ -106,7 +106,7 @@ export default function HealthAnalysisPage() {
           <div className="max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="mb-10 text-center">
               <h1 className="text-4xl font-headline font-bold mb-3">Symptom Assessment</h1>
-              <p className="text-muted-foreground">Describe what you're feeling for an AI health check simulation.</p>
+              <p className="text-muted-foreground">Describe what you're feeling for a smart health check simulation.</p>
             </div>
             <GlassCard>
               <form onSubmit={handleAnalyze} className="space-y-6">
@@ -147,12 +147,12 @@ export default function HealthAnalysisPage() {
                   {isAnalyzing ? (
                     <>
                       <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                      AI Analysis in Progress...
+                      Smart Analysis in Progress...
                     </>
                   ) : (
                     <>
                       <HeartPulse className="w-5 h-5 mr-2" />
-                      Start AI Assessment
+                      Start Smart Assessment
                     </>
                   )}
                 </Button>
@@ -169,7 +169,7 @@ export default function HealthAnalysisPage() {
                   <div>
                     <h3 className="text-2xl font-bold flex items-center gap-2">
                       <Activity className="text-primary w-6 h-6" />
-                      AI Assessment Report
+                      Smart Assessment Report
                     </h3>
                     <p className="text-sm text-muted-foreground">Reference: HL-#{Math.floor(Math.random()*9000)+1000}</p>
                   </div>
@@ -209,7 +209,7 @@ export default function HealthAnalysisPage() {
                     <h3 className="text-xl font-bold">Urgent Action Required</h3>
                   </div>
                   <p className="text-sm text-muted-foreground mb-8">
-                    Our AI has detected markers that suggest immediate clinical review is necessary. We recommend selecting a nearby hospital to initiate emergency coordination.
+                    Our smart system has detected markers that suggest immediate clinical review is necessary. We recommend selecting a nearby hospital to initiate emergency coordination.
                   </p>
                   <Button 
                     className="w-full h-16 text-lg bg-destructive hover:bg-destructive/90 rounded-2xl shadow-2xl shadow-destructive/20"

@@ -183,7 +183,7 @@ export default function MotherDashboard() {
 
                <GlassCard className="bg-primary text-white border-none overflow-hidden relative">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
-                  <h4 className="font-bold mb-6">OPay Wallet</h4>
+                  <h4 className="font-bold">OPay Wallet</h4>
                   <div className="space-y-1 mb-8">
                      <p className="text-xs opacity-70 uppercase font-bold">Balance</p>
                      <p className="text-4xl font-bold font-headline">₦32,500</p>

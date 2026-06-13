@@ -23,9 +23,9 @@ import Link from "next/link";
 
 const featureGroups = [
   {
-    title: "Monitoring & AI",
+    title: "Monitoring & Smart",
     features: [
-      { icon: Heart, title: "Fetal Heartbeat Stream", desc: "High-fidelity digital recordings with AI analysis." },
+      { icon: Heart, title: "Fetal Heartbeat Stream", desc: "High-fidelity digital recordings with smart analysis." },
       { icon: TrendingUp, title: "Risk Scoring", desc: "Real-time risk assessment (Low, Medium, High)." },
       { icon: Smartphone, title: "Mobile Connect", desc: "Access records and chat with doctors 24/7." }
     ]

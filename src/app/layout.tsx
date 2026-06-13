@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'HeartLink | Premium Maternal Care',
-  description: 'Integrated healthcare and monitoring system for mothers and babies.',
+  description: 'Integrated smart healthcare and monitoring system for mothers and babies.',
 };
 
 export default function RootLayout({

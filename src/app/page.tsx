@@ -47,7 +47,7 @@ export default function HomePage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
-              AI-POWERED MATERNAL MONITORING
+              SMART-POWERED MATERNAL MONITORING
             </div>
             <h1 className="text-6xl md:text-8xl font-bold font-headline leading-[1.1]">
               Every <span className="text-primary italic">Heartbeat</span> Matters.
@@ -168,9 +168,9 @@ export default function HomePage() {
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
           </div>
           <div className="order-1 lg:order-2 space-y-8">
-            <h2 className="text-5xl font-bold leading-tight">IoT Doppler <br/><span className="text-primary">Live Integration.</span></h2>
+            <h2 className="text-5xl font-bold leading-tight">IoT Doppler <br/><span className="text-primary">Smart Integration.</span></h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Standard dopplers become smart devices with HeartLink. Record heartbeat waveforms at home and let our AI engine detect early warning signs.
+              Standard dopplers become smart devices with HeartLink. Record heartbeat waveforms at home and let our smart engine detect early warning signs.
             </p>
             <div className="grid gap-6">
               {[
