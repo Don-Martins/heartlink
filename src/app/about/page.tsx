@@ -20,7 +20,7 @@ export default function AboutPage() {
       
       <section className="pt-32 pb-20 container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h1 className="text-5xl font-bold mb-6">Mission <span className="text-primary italic">HeartLink</span></h1>
+          <h1 className="text-5xl font-bold mb-6">Mission</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             We are a group of technologists and clinicians dedicated to reducing maternal mortality through real-time data and coordinated response.
           </p>
