@@ -4,6 +4,7 @@
 import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { Button } from "@/components/ui/button";
 import { 
   Activity, 
   Cpu, 
@@ -16,6 +17,7 @@ import {
   Smartphone
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { ProgressTracker } from "@/components/ui/ProgressTracker";
 
