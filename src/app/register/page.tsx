@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Heart, User, ShieldPlus, Hospital, ChevronRight, CheckCircle2 } from "lucide-react";
+import { Heart, User, ShieldPlus, Hospital, ChevronRight, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Input } from "@/components/ui/input";
@@ -12,12 +12,22 @@ import { Label } from "@/components/ui/label";
 export default function RegisterPage() {
   const [step, setStep] = useState(1);
   const [role, setRole] = useState<string | null>(null);
+  const [isVerifying, setIsVerifying] = useState(false);
 
   const roles = [
-    { id: "mother", title: "Mother", desc: "For pregnancy monitoring and care.", icon: User },
-    { id: "worker", title: "Healthcare Worker", desc: "For managing patient care.", icon: ShieldPlus },
-    { id: "hospital", title: "Hospital", desc: "For coordinating emergencies.", icon: Hospital },
+    { id: "mother", title: "Mother", desc: "For pregnancy monitoring and care.", icon: User, path: "/mother/dashboard" },
+    { id: "worker", title: "Healthcare Worker", desc: "For managing patient care.", icon: ShieldPlus, path: "/worker/dashboard" },
+    { id: "hospital", title: "Hospital", desc: "For coordinating emergencies.", icon: Hospital, path: "/hospital/dashboard" },
   ];
+
+  const handleComplete = () => {
+    setIsVerifying(true);
+    // Simulate verification
+    setTimeout(() => {
+      const selectedRole = roles.find(r => r.id === role);
+      window.location.href = selectedRole?.path || "/mother/dashboard";
+    }, 2000);
+  };
 
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
@@ -106,11 +116,22 @@ export default function RegisterPage() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold">Registration Complete!</h3>
-                <p className="text-muted-foreground mt-2">Welcome to HeartLink. Your account is being verified.</p>
+                <p className="text-muted-foreground mt-2">Welcome to HeartLink. Click below to enter your dashboard.</p>
               </div>
-              <Link href="/mother/dashboard" className="block w-full">
-                <Button className="w-full bg-primary h-12">Go to Dashboard</Button>
-              </Link>
+              <Button 
+                className="w-full bg-primary h-12" 
+                onClick={handleComplete}
+                disabled={isVerifying}
+              >
+                {isVerifying ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Connecting...
+                  </>
+                ) : (
+                  "Go to Dashboard"
+                )}
+              </Button>
             </div>
           )}
 
