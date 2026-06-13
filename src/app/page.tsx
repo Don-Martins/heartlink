@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -19,7 +20,10 @@ import {
   Smartphone,
   CloudUpload,
   Cpu,
-  Bell
+  Bell,
+  Stethoscope,
+  Box,
+  Hospital
 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
@@ -31,10 +35,54 @@ export default function HomePage() {
   const dopplerUsageImage = PlaceHolderImages.find(img => img.id === 'doppler-usage');
 
   const smartSteps = [
-    { icon: Smartphone, title: "Doppler Input", desc: "Digital heartbeat capture.", color: "text-blue-500", bg: "bg-blue-500/10" },
-    { icon: CloudUpload, title: "Cloud Stream", desc: "Encrypted data sync.", color: "text-purple-500", bg: "bg-purple-500/10" },
-    { icon: Cpu, title: "Smart Analysis", desc: "Sub-second waveform check.", color: "text-accent", bg: "bg-accent/10" },
-    { icon: Bell, title: "Alert Signal", desc: "Instant responder trigger.", color: "text-destructive", bg: "bg-destructive/10" }
+    { 
+      icon: Smartphone, 
+      title: "Digital Capture", 
+      desc: "Hardware reads fetal vitals at home.", 
+      color: "text-blue-500", 
+      bg: "bg-blue-500/10",
+      detail: "4.2MHz precision"
+    },
+    { 
+      icon: CloudUpload, 
+      title: "Secure Sync", 
+      desc: "Encrypted data streams to the cloud.", 
+      color: "text-purple-500", 
+      bg: "bg-purple-500/10",
+      detail: "256-bit AES"
+    },
+    { 
+      icon: Cpu, 
+      title: "Smart Analysis", 
+      desc: "Waveforms evaluated in real-time.", 
+      color: "text-accent", 
+      bg: "bg-accent/10",
+      detail: "Sub-second logic"
+    },
+    { 
+      icon: Bell, 
+      title: "Instant Alert", 
+      desc: "Risk flags trigger responder signals.", 
+      color: "text-destructive", 
+      bg: "bg-destructive/10",
+      detail: "Immediate SOS"
+    },
+    { 
+      icon: Hospital, 
+      title: "Hospital Link", 
+      desc: "Direct coordination with ER teams.", 
+      color: "text-primary", 
+      bg: "bg-primary/10",
+      detail: "Live dispatch"
+    },
+    { 
+      icon: Box, 
+      title: "Last Mile", 
+      desc: "Drones or bikes deliver medicines.", 
+      color: "text-orange-500", 
+      bg: "bg-orange-500/10",
+      detail: "Beacon logistics"
+    }
   ];
 
   return (
@@ -130,44 +178,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive Smart Loop Section */}
-      <section className="py-32 container mx-auto px-4 bg-muted/20 rounded-[4rem] my-20">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">How It <span className="text-primary italic">Works</span></h2>
-          <p className="text-xl text-muted-foreground">The HeartLink ecosystem manages the entire care journey through a secure, high-speed coordination loop.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connecting Lines (Desktop) */}
-          <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10 -translate-y-12 hidden lg:block" />
+      {/* Better Interactive Smart Loop Section */}
+      <section className="py-32 container mx-auto px-4">
+        <div className="bg-muted/30 rounded-[4rem] p-12 md:p-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-primary/5 heartbeat-wave opacity-20 pointer-events-none" />
           
-          {smartSteps.map((step, i) => (
-            <div key={i} className="relative z-10 flex flex-col items-center text-center group">
-              <div className={cn(
-                "w-24 h-24 rounded-3xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 shadow-lg",
-                step.bg, step.color
-              )}>
-                <step.icon className="w-10 h-10" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed px-4">{step.desc}</p>
-              
-              {i < 3 && (
-                <div className="absolute top-1/2 -right-4 translate-x-1/2 -translate-y-12 hidden lg:block">
-                  <ArrowRight className="text-primary/20 w-6 h-6" />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+          <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">The Smart <span className="text-primary italic">Care Loop</span></h2>
+            <p className="text-xl text-muted-foreground">From home monitor to hospital ward, our integrated system closes the gap in record time.</p>
+          </div>
 
-        <div className="mt-20 text-center">
-          <Link href="/how-it-works">
-            <Button variant="outline" className="rounded-full px-10 h-14 font-bold border-primary text-primary hover:bg-primary/5">
-              Deep Dive into the Tech
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+            {smartSteps.map((step, i) => (
+              <GlassCard key={i} className="group hover:bg-primary transition-all duration-500 border-primary/10">
+                <div className="flex items-start gap-6">
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:bg-white/20 group-hover:scale-110 shadow-lg",
+                    step.bg, step.color, "group-hover:text-white"
+                  )}>
+                    <step.icon className="w-8 h-8" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center mb-2">
+                       <span className="text-[10px] font-bold text-primary group-hover:text-white/60 uppercase tracking-widest">Step {i+1}</span>
+                       <span className="text-[10px] font-bold opacity-60 group-hover:text-white/80">{step.detail}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-white">{step.title}</h3>
+                    <p className="text-muted-foreground group-hover:text-white/80 text-sm leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+
+          <div className="mt-20 text-center relative z-10">
+            <Link href="/how-it-works">
+              <Button className="rounded-full px-12 h-16 text-lg font-bold shadow-2xl shadow-primary/20">
+                See How It Scales
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
