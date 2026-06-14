@@ -96,13 +96,7 @@ export default function HomePage() {
         
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-10">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-primary/10 text-primary rounded-full font-bold text-sm border border-primary/20 shadow-inner">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-              </span>
-              SMART-POWERED MATERNAL MONITORING
-            </div>
+            
             <h1 className="text-6xl md:text-8xl font-bold font-headline leading-[1.1]">
               Every <span className="text-primary italic">Heartbeat</span> Matters.
             </h1>
@@ -139,7 +133,7 @@ export default function HomePage() {
           <div className="relative group">
             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] animate-float">
               <Image 
-                src={heroImage?.imageUrl || "https://picsum.photos/seed/heartlink1/1200/800"} 
+                src={heroImage?.imageUrl || "https://chatgpt.com/backend-api/estuary/content?id=file_00000000749c72468c3d6ff2a8957de6&ts=494839&p=fs&cid=1&sig=2d33e64cfaea049555784c95196e0044348e662439e4489906c7406037180ec7&v=0/1200/800"} 
                 alt="Mother health" 
                 width={700} 
                 height={900} 
@@ -166,7 +160,7 @@ export default function HomePage() {
                 <div className="flex -space-x-3 mb-3">
                   {[1,2,3].map(i => (
                     <div key={i} className="w-10 h-10 rounded-full border-4 border-white dark:border-card bg-muted overflow-hidden">
-                      <Image src={`https://picsum.photos/seed/${i+10}/40/40`} alt="user" width={40} height={40} />
+                      <Image src={`https://www.aninews.in/news/world/asia/pakistan-drone-carrying-drugs-crashes-in-lahore20230708053226/${i+10}/40/40`} alt="user" width={40} height={40} />
                     </div>
                   ))}
                   <div className="w-10 h-10 rounded-full border-4 border-white dark:border-card bg-primary text-xs text-white flex items-center justify-center font-bold">+12</div>
@@ -231,7 +225,7 @@ export default function HomePage() {
                
                <div className="relative h-64 w-full mb-8 rounded-3xl overflow-hidden shadow-inner">
                   <Image 
-                    src={dopplerUsageImage?.imageUrl || "https://picsum.photos/seed/heartlink_doppler/800/800"} 
+                    src={dopplerUsageImage?.imageUrl || "https://chatgpt.com/backend-api/estuary/content?id=file_00000000df6c71f4aa17aa88dbde7b69&ts=494839&p=fs&cid=1&sig=31ab58d31d9e99d6572dca9bffde842956f466a379621f0653453e0611af25e8&v=0/800/800"} 
                     alt="Doppler Usage" 
                     fill 
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -318,7 +312,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-card">
                 <Image 
-                  src={droneImage?.imageUrl || "https://picsum.photos/seed/heartlink8/800/600"} 
+                  src={droneImage?.imageUrl || "https://chatgpt.com/backend-api/estuary/content?id=file_00000000df6c71f4aa17aa88dbde7b69&ts=494839&p=fs&cid=1&sig=31ab58d31d9e99d6572dca9bffde842956f466a379621f0653453e0611af25e8&v=0/800/600"} 
                   alt="Medical Delivery Drone" 
                   width={800} 
                   height={600} 

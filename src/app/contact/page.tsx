@@ -41,7 +41,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground font-bold uppercase">Email Us</p>
-                    <p className="font-bold">hello@heartlink.care</p>
+                    <p className="font-bold"></p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-center">
@@ -50,7 +50,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground font-bold uppercase">Call Us</p>
-                    <p className="font-bold">+234 (0) 800-HEARTLINK</p>
+                    <p className="font-bold"></p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-center">
@@ -59,7 +59,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground font-bold uppercase">HQ Office</p>
-                    <p className="font-bold">42 Innovation Way, Lagos, Nigeria</p>
+                    <p className="font-bold"></p>
                   </div>
                 </div>
               </div>
