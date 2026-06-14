@@ -29,7 +29,7 @@ const partnerTypes = [
   {
     title: "Government & NGOs",
     icon: Globe,
-    list: ["Elumelu Foundation", "Tesla Foundation", "Africa Health Organisation", "Amref Health Africa"]
+    list: [" Tony Elumelu Foundation", "Tesla Foundation", "Africa Health Organisation", "Amref Health Africa", "Min of Health", "WHO", "UNICEF"]
   }
 ];
 
